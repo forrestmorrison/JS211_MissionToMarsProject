@@ -9,13 +9,57 @@ const jobTypes = {
   programmer: 'Any Ship!'
 };
 
-// Your code will go here
+// create class CrewMember with properties of name, job, specialSkill & ship
+class CrewMember {
+  constructor (name, job, specialSkill, ship=null) {
+    this.name = name;
+    this.job = job;
+    this.specialSkill = specialSkill;
+    this.ship = ship;
+  }
+
+  // create method enterShip in class CrewMember that adds Ship object to CrewMember ship property
+  // and adds CrewMember object to ships crew property
+  enterShip(ship) {
+    this.ship = ship;
+    ship.crew.push(this);
+  }
+}
 
 
+// create class Ship with properties of name, type, ability & crew equal to empty array
+class Ship {
+  constructor (name, type, ability) {
+    this.name = name;
+    this.type = type;
+    this.ability = ability;
+    this.crew = [];
+  }
 
+  // create method missionStatement in class Ship that returns "Can't perform a mission yet." if the ship's crew property
+  // has no value, otherwise return the ships ability
+  missionStatement() {
+    if (this.crew.length === 0) {
+      return "Can't perform a mission yet."
+    } else {
+      return this.ability;
+    }
+  }
+}
 
+const crewMember1 = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
 
+let mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
 
+crewMember1.enterShip(mav);
+
+let mission = mav.missionStatement();
+
+// console.log(mav.crew);
+
+// console.log(crewMember1.ship);
+
+console.log(mission);
 
 // Begin by reading the tests and building a function that will full each one.
 // As you build, you might not have to build them in order, maybe you do...

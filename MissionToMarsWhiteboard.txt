@@ -1,0 +1,14 @@
+Mission To Mars
+
+ToDo
+
+create class CrewMember with name, job, specialSkill & ship properties
+
+create class Ship should have name, type, ability, an empty crew upon initiation & shipMissionStatement properties
+
+create method enterShip in class CrewMember that adds Ship object to CrewMember ship property
+and adds CrewMember object to ships crew property
+
+create method missionStatement in class Ship that returns "Can't perform a mission yet." if the ship's crew property
+has no value, otherwise return the ships ability
+
